@@ -6,11 +6,11 @@ const NavBar = () => {
 			<h1>React MySQL</h1>
 			<nav>
 				<ul>
-					<li>
+					{/* <li>
 						<Link className="text-decoration-none" to="/">
 							Task Page
 						</Link>
-					</li>
+					</li> */}
 					<li>
 						<Link className="text-decoration-none" to="/new">
 							Task Form
