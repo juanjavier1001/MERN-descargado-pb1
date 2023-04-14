@@ -1,8 +1,13 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { createTaskRequest } from '../api/task.api';
 import TaskPage from './TaskPage';
+import { ProviderContext, TaskContext } from '../context/TaskContext';
 
 const TaskForm = () => {
+	const { task, changeTask } = useContext(TaskContext);
+	console.log('TK', task, changeTask);
+
+	//console.log('ct', changeTask);
 	const [title, changeTitle] = useState('');
 	const [description, changedescription] = useState('');
 
@@ -18,6 +23,8 @@ const TaskForm = () => {
 				description,
 			};
 			const result = await createTaskRequest(obj);
+			//console.log('rr', result.data);
+			changeTask([...task, result.data]);
 			changeTitle('');
 			changedescription('');
 			console.log(result);

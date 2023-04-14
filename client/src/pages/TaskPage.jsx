@@ -1,10 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { getTaskRequest } from '../api/task.api';
 import TaskCard from '../components/TaskCard';
 import TaskForm from './TaskForm';
+import { TaskContext } from '../context/TaskContext';
 
 const TaskPage = () => {
-	const [task, changeTask] = useState([]);
+	//const [task, changeTask] = useState([]);
+	const { task, changeTask } = useContext(TaskContext);
 
 	useEffect(() => {
 		console.log('hola pa');
@@ -24,7 +26,7 @@ const TaskPage = () => {
 		<>
 			<h1>Tasks</h1>
 			<ul>
-				<TaskCard task={task} key={task.id} />
+				<TaskCard /* task={task} key={task.id} changeTask={changeTask} */ />
 				{/* {task.map((e, i) => {
 					return (
 						<li className="mb-2" key={e.id}>

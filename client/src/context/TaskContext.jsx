@@ -1,5 +1,16 @@
-const TaskContext = () => {
-	return <h1>hola soy task contxt</h1>;
+//creamos contexto
+import { createContext, useState } from 'react';
+
+const TaskContext = createContext();
+
+const ProviderContext = ({ children }) => {
+	const [task, changeTask] = useState([]);
+
+	return (
+		<TaskContext.Provider value={{ task, changeTask }}>
+			{children}
+		</TaskContext.Provider>
+	);
 };
 
-export default TaskContext;
+export { TaskContext, ProviderContext };
