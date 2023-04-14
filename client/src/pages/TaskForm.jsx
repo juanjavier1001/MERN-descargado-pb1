@@ -54,7 +54,7 @@ const TaskForm = () => {
 				<button type="submit">save</button>
 			</form>
 
-			{/* <TaskPage /> */}
+			<TaskPage />
 		</>
 	);
 };
